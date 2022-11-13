@@ -4,48 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
-    android:backgroundTint="@color/orange"
+    android:background="@color/empire"
+    android:backgroundTint="@color/canary"
     tools:context=".Cronograma_Usuario">
 
-    <ImageView
-
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/sonome1"
+    <EditText
+        android:id="@+id/nomeAluno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edittext"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:text="Nome dos Alunos"
+        android:textAlignment="center"
+        android:textColorHighlight="@color/black"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/background_view_top"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="524dp"
-        android:background="@color/branco"
-        android:text="CRONOGRAMA ALUNO"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/viewPager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
     <ListView
+        android:id="@+id/ListViewAlunos"
         android:layout_width="409dp"
-        android:layout_height="522dp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="179dp" />
+        android:layout_height="634dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeAluno" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">AppSenai</string>
+    <string name="entrar"></string>
+    <string name="Nome"></string>
+    <string name="email"></string>
+    <string name="txtTelaCadastro"></string>
+    <string name="title_cadastro">Cadastra-se Aqui</string>
+    <string name="cadastro">Cadastro</string>
+    
 
 </resources>
