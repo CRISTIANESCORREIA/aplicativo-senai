@@ -67,13 +67,13 @@ public class FormCadastroActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                             Toast.makeText(FormCadastroActivity.this, "Conta criada com sucesso.",
-                                    Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_LONG).show();
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(FormCadastroActivity.this, "Conta já existe ou ",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FormCadastroActivity.this, "Conta já existe ou o endereço está incompleto! ",
+                                    Toast.LENGTH_LONG).show();
                             updateUI(null);
                         }
                     }
