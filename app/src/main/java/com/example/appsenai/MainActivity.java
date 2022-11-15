@@ -49,11 +49,28 @@ public class MainActivity extends AppCompatActivity {
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn(editEmail.getText().toString(),editSenha.getText().toString());
+                if(validarDados()){
+                    signIn(editEmail.getText().toString(),editSenha.getText().toString());
+                }else{
+                    Toast.makeText(MainActivity.this, "Obrigatório preenchimento de todos campos!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
 
+    }
+
+    private boolean validarDados() {
+        if(editEmail.getText().toString().equals("")){
+            editEmail.setError("E-mail não preenchido!");
+            return false;
+        }
+
+        if(editSenha.getText().toString().equals("")){
+            editSenha.setError("Senha não preenchido!");
+            return false;
+        }
+        return true;
     }
 
     private void inicializar() {
@@ -62,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         txt_tela_cadastro = findViewById(R.id.txtTelaCadastro);
         botao = findViewById(R.id.btEntrar);
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     private void signIn(String email, String password) {
