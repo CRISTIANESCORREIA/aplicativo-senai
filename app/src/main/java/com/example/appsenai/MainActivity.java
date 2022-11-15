@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         txt_tela_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FormCadastro.class);
+                Intent intent = new Intent(MainActivity.this, FormCadastroActivity.class);
                 startActivity(intent);
             }
         });
