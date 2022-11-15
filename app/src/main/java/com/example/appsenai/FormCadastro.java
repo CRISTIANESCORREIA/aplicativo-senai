@@ -18,14 +18,17 @@ public class FormCadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_cadastro);
         inicializar();
-     //   getActionBar().hide();
+        eventoBotoes();
+
+    }
+
+    private void eventoBotoes() {
         btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validarDados();
             }
         });
-
     }
 
     private void validarDados() {
