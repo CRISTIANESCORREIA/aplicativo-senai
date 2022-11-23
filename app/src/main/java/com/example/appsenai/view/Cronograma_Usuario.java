@@ -1,9 +1,11 @@
-package com.example.appsenai;
+package com.example.appsenai.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.appsenai.R;
 
 public class Cronograma_Usuario extends AppCompatActivity {
 

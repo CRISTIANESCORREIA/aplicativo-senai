@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/empire"
     android:backgroundTint="@color/canary"
-    tools:context=".Cronograma_Usuario">
+    tools:context=".view.Cronograma_Usuario">
 
     <EditText
         android:id="@+id/nomeAluno"

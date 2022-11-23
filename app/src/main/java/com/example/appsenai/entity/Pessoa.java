@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Pessoa implements Serializable {
     private long id;
-    private char tipo; // Pode ser A-ALUNO - P-PROFESSOR- G-GERENCIADOR DO SISTEMA
+    private String tipo; // Pode ser A-ALUNO - P-PROFESSOR- G-GERENCIADOR DO SISTEMA
     private String nomeComleto;
     private String email;
     private String senha;
@@ -16,7 +16,7 @@ public class Pessoa implements Serializable {
         this.id=  r1.nextLong();
     }
 
-    public Pessoa(long id, char tipo, String nomeComleto, String email, String senha, String cpf) {
+    public Pessoa(long id, String tipo, String nomeComleto, String email, String senha, String cpf) {
         this.id = id;
         this.tipo = tipo;
         this.nomeComleto = nomeComleto;
@@ -25,7 +25,7 @@ public class Pessoa implements Serializable {
         this.cpf = cpf;
     }
 
-    public Pessoa(char tipo, String nomeComleto, String email, String senha, String cpf) {
+    public Pessoa(String tipo, String nomeComleto, String email, String senha, String cpf) {
         this.tipo = tipo;
         this.nomeComleto = nomeComleto;
         this.email = email;
@@ -51,11 +51,11 @@ public class Pessoa implements Serializable {
         this.id = id;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
