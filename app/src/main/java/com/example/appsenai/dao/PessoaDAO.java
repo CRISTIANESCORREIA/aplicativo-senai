@@ -106,7 +106,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         Log.w("valoresAlterar",values.toString());
 
-        int retorno = getWritableDatabase().update("usuario",values,"id=?",args);
+        int retorno = getWritableDatabase().update("usuario",values,"ID=?",args);
 
         Log.w("retornoID",String.valueOf(retorno));
 
@@ -120,13 +120,39 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
     }
 
+    public Pessoa buscaPorId(int id){
+
+        String columns[] = {"ID","NOME_COMPLETO","EMAIL","SENHA","CPF","TIPO"};
+
+        String args[] = {""+id};
+
+        Cursor cursor = getReadableDatabase().query("usuario",columns,null,args,null,null,null);
+
+        Pessoa pessoa = null;
+
+        while(cursor.moveToNext()){
+
+            pessoa = new Pessoa(cursor.getInt(0),cursor.getString(5)
+                    ,cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+
+
+
+
+        }
+
+        cursor.close();
+
+        return pessoa;
+
+    }
+
     public void deletar(int id){
 
         String args[] = {""+id};
 
         int i;
 
-        i = getWritableDatabase().delete("produtos","id=?",args);
+        i = getWritableDatabase().delete("usuario","ID=?",args);
 
     }
 }

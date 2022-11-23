@@ -11,11 +11,6 @@ public class Pessoa implements Serializable {
     private String senha;
     private String cpf;
 
-    public void selfGenerateId(){
-        Random r1 = new Random();
-        this.id=  r1.nextLong();
-    }
-
     public Pessoa(long id, String tipo, String nomeComleto, String email, String senha, String cpf) {
         this.id = id;
         this.tipo = tipo;
