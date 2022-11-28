@@ -36,8 +36,10 @@ android {
 dependencies {
     //Firebase Bom
     implementation platform('com.google.firebase:firebase-bom:31.0.3')
-    //Fibase Auth
+    //Firebase Authentication - autenticacao
     implementation 'com.google.firebase:firebase-auth'
+    //firebase database - banco
+    implementation 'com.google.firebase:firebase-database'
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/container_componentes"
-    tools:context=".FormCadastroActivity">
+    tools:context=".view.FormCadastroActivity">
 
     <View
         android:id="@id/title_cadastrese"

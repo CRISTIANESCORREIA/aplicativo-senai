@@ -1,14 +1,17 @@
-package com.example.appsenai;
+package com.example.appsenai.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CadastroUsuariosActivity extends AppCompatActivity {
+import com.example.appsenai.R;
+
+public class CadastroAlunoActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_usuarios);
+        setContentView(R.layout.activity_cadastro_aluno);
     }
 }
