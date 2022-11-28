@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class PessoaDAO extends SQLiteOpenHelper {
 
-    private static final String DATABASE = "appsenai";
+    private static final String DATABASE = "appsenai1";
 
     public PessoaDAO(@Nullable Context context) {
         super(context, DATABASE, null, 1);
@@ -63,8 +63,8 @@ public class PessoaDAO extends SQLiteOpenHelper {
         values.put("SENHA", pessoa.getSenha());
         values.put("CPF", pessoa.getCpf());
         values.put("TIPO", pessoa.getTipo());
-        getWritableDatabase().insert("usuario",null,values);
-
+        long i =  getWritableDatabase().insert("pessoa",null,values);
+        Log.w("id_salvar","code: "+i);
     }
     /*
      * Retorna lista com dados do banco*/
@@ -72,7 +72,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         String columns[] = {"ID","NOME_COMPLETO","EMAIL","SENHA","CPF","TIPO"};
 
-        Cursor cursor = getReadableDatabase().query("usuario",columns,null,null,null,null,null);
+        Cursor cursor = getReadableDatabase().query("pessoa",columns,null,null,null,null,null);
 
         ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
 
@@ -107,7 +107,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         Log.w("valoresAlterar",values.toString());
 
-        int retorno = getWritableDatabase().update("usuario",values,"ID=?",args);
+        int retorno = getWritableDatabase().update("pessoa",values,"ID=?",args);
 
         Log.w("retornoID",String.valueOf(retorno));
 
@@ -127,7 +127,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         String args[] = {""+id};
 
-        Cursor cursor = getReadableDatabase().query("usuario",columns,null,args,null,null,null);
+        Cursor cursor = getReadableDatabase().query("pessoa",columns,null,args,null,null,null);
 
         Pessoa pessoa = null;
 
@@ -153,7 +153,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         int i;
 
-        i = getWritableDatabase().delete("usuario","ID=?",args);
+        i = getWritableDatabase().delete("pessoa","ID=?",args);
 
     }
 }
