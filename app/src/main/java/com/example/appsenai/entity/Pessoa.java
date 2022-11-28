@@ -11,6 +11,13 @@ public class Pessoa implements Serializable {
     private String senha;
     private String cpf;
 
+    @Override
+    public String toString() {
+        return tipo +
+                " - " + nomeComleto  +
+                "\nE-mail: " + email ;
+    }
+
     public Pessoa(long id, String tipo, String nomeComleto, String email, String senha, String cpf) {
         this.id = id;
         this.tipo = tipo;

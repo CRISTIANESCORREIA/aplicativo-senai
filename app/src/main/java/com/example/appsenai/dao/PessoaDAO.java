@@ -128,17 +128,15 @@ public class PessoaDAO extends SQLiteOpenHelper {
         String args[] = {""+id};
 
         Cursor cursor = getReadableDatabase().query("pessoa",columns,null,args,null,null,null);
-
         Pessoa pessoa = null;
 
         while(cursor.moveToNext()){
-
-            pessoa = new Pessoa(cursor.getInt(0),cursor.getString(5)
-                    ,cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-
-
-
-
+            pessoa = new Pessoa(cursor.getInt(0),
+                    cursor.getString(5)
+                    ,cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4));
         }
 
         cursor.close();
@@ -147,13 +145,13 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
     }
 
-    public void deletar(int id){
-
+    public boolean deletar(int id){
         String args[] = {""+id};
-
-        int i;
-
-        i = getWritableDatabase().delete("pessoa","ID=?",args);
-
+        int retorno = getWritableDatabase().delete("pessoa","ID=?",args);
+        if(retorno > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.example.appsenai.dao.PessoaDAO;
 import com.example.appsenai.databinding.ActivityCadastroDePessoaBinding;
 import com.example.appsenai.entity.Pessoa;
+import com.example.appsenai.entity.util.MaskEditUtil;
 
 public class CadastroDePessoaActivity extends AppCompatActivity {
 
@@ -22,23 +23,47 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String valida =  bundle.getString("status");
-
+        Pessoa pAlterar  = (Pessoa) bundle.getSerializable("Pessoa");;
         if(valida.equals("inserir")){
-
+            binding.edtCpf.addTextChangedListener(MaskEditUtil.mask(binding.edtCpf, MaskEditUtil.FORMAT_CPF));
         }else{
+
             binding.edtSenha.setEnabled(true);
-            binding.btnConfirmarCadastro.setText("Alterar Cadastro");
+            binding.btnConfirmarCadastro.setText("Alterar");
+            binding.textViewCadastroTitulo.setText("Edição de Pessoa");
+            binding.edtNomePessoa.setText(pAlterar.getNomeComleto().toString());
+            if(pAlterar.getTipo().toString().equals("Aluno")){
+                binding.spinnerTipo.setSelection(1);
+            }else if(pAlterar.getTipo().toString().equals("Professor")){
+                binding.spinnerTipo.setSelection(2);
+            }else if(pAlterar.getTipo().toString().equals("Sysadmin")){
+                binding.spinnerTipo.setSelection(3);
+            }else{
+                binding.spinnerTipo.setSelection(0);
+            }
+            binding.edtEmail.setText(pAlterar.getEmail().toString());
+            binding.edtCpf.addTextChangedListener(MaskEditUtil.mask(binding.edtCpf, MaskEditUtil.FORMAT_CPF));
+            binding.edtCpf.setText(pAlterar.getCpf().toString());
+            binding.edtSenha.setText(pAlterar.getSenha());
         }
 
         binding.btnConfirmarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validaCampos()) {
-                    Pessoa p = montarObjetoPessoa();
-                    PessoaDAO pdao = new PessoaDAO(getApplicationContext());
-                    pdao.salvar(p);
-                    Toast.makeText(CadastroDePessoaActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
+                    if(binding.btnConfirmarCadastro.toString().equals("Alterar")){
+                        PessoaDAO pdao = new PessoaDAO(getApplicationContext());
+                        pdao.alterar(pAlterar);
+                        Toast.makeText(CadastroDePessoaActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }else{
+                        Pessoa p = montarObjetoPessoa();
+                        PessoaDAO pdao = new PessoaDAO(getApplicationContext());
+                        pdao.salvar(p);
+                        Toast.makeText(CadastroDePessoaActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
                 }
             }
         });
@@ -71,14 +96,11 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
             binding.edtCpf.requestFocus();
             return false;
         }
-
-
         if(binding.spinnerTipo.getSelectedItem().toString().contains("Selecione")){
             Toast.makeText(this, "Tipo não selecionado!", Toast.LENGTH_SHORT).show();
             binding.spinnerTipo.performClick();
             return false;
         }
-
         return true;
     }
 }
