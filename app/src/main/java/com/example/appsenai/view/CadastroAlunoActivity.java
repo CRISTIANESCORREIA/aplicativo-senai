@@ -6,9 +6,7 @@ import android.os.Bundle;
 
 import com.example.appsenai.R;
 
-public class CadastroAlunoActivity extends AppCompatActivity {
-
-
+public class CadastroAlunoActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
