@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/container_componentes"
-    tools:context=".FormCadastro">
+    tools:context=".view.FormCadastroActivity">
 
     <View
         android:id="@id/title_cadastrese"
@@ -41,6 +41,7 @@
         android:hint="Digite seu nome"
         android:inputType="text"
         android:maxLines="1"
+        android:text="Nome"
         android:padding="15dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,8 +73,8 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittext"
-        android:hint="Cadastre senha"
-        android:inputType="numberPassword"
+        android:hint="Digite sua senha"
+        android:inputType="textPassword"
         android:maxLines="1"
         android:padding="15dp"
         android:textSize="18sp"

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "19527316310",
+    "project_id": "superapp-3b919",
+    "storage_bucket": "superapp-3b919.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19527316310:android:fb008c262d3d1c3956dcf7",
+        "android_client_info": {
+          "package_name": "com.example.appsenai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19527316310-tmgpnacck5jqbae2aop046no1frg5c37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi-jBLDq0HXa0EKNL4PeSAHa7tZTaftLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19527316310-tmgpnacck5jqbae2aop046no1frg5c37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

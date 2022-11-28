@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/empire"
+    android:backgroundTint="@color/canary"
+    tools:context=".view.MenuUsuarioActivity">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imgBtn_CadastroAlunos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:contentDescription="@string/cadastro"
+                android:padding="20dp"
+                android:tooltipText="Cadastro de Alunos"
+                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="Cadastro de alunos"
+                android:textSize="20sp" />
+        </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/imgBtn_CadastroTurmas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:contentDescription="@string/cadastro"
+            android:padding="20dp"
+            android:tooltipText="Cadastro de Alunos"
+            app:srcCompat="@drawable/ic_baseline_supervised_user_circle_24" />
+
+        <TextView
+            android:id="@+id/textViewTurmas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20sp"
+            android:text="Cadastro de Turmas"
+            android:textSize="20sp" />
+
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="turmas">
+        <item>Turma 01</item>
+        <item>Turma 02</item>
+        <item>Turma 03</item>
+        <item>Turma 04</item>
+    </string-array>
+</resources>

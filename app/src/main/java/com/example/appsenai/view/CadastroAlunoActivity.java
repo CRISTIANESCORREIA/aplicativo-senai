@@ -1,17 +1,17 @@
-package com.example.appsenai;
+package com.example.appsenai.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.Button;
 
-public class Cronograma_Usuario extends AppCompatActivity {
+import com.example.appsenai.R;
+
+public class CadastroAlunoActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cronograma_usuario);
-
+        setContentView(R.layout.activity_cadastro_aluno);
     }
 }

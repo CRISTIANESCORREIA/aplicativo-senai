@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cursos">
+        <item>Análise e Desenvolvimento de Sistemas</item>
+        <item>Sistemas Embarcados</item>
+        <item>Redes de Computadores</item>
+        <item>Automação Industrial</item>
+        <item>Ciber-segurança</item>
+    </string-array>
+</resources>
