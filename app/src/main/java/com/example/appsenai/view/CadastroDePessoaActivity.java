@@ -20,7 +20,15 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
         binding = ActivityCadastroDePessoaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Bundle bundle = getIntent().getExtras();
+        String valida =  bundle.getString("status");
 
+        if(valida.equals("inserir")){
+
+        }else{
+            binding.edtSenha.setEnabled(true);
+            binding.btnConfirmarCadastro.setText("Alterar Cadastro");
+        }
 
         binding.btnConfirmarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override

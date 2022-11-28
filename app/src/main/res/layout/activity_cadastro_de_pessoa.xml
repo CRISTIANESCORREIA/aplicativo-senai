@@ -78,10 +78,10 @@
         app:layout_constraintEnd_toEndOf="@+id/spinnerTipo"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/edtSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
@@ -91,6 +91,7 @@
         android:enabled="false"
         android:hint="Senha Padrão: abc123@@"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerTipo" />

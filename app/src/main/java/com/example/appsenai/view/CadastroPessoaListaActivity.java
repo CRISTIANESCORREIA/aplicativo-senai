@@ -52,6 +52,11 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(CadastroPessoaListaActivity.this, "item selecionado para editar", Toast.LENGTH_SHORT).show();
                 //fazer ação para abrir nova tela com os dados do aluno selecionado.
+                Intent intent = new Intent(getApplicationContext(),CadastroDePessoaActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("status","alterar");
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -61,6 +66,9 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
                 //Toast.makeText(CadastroPessoaListaActivity.this, "Abre a tela para novo cadastro", Toast.LENGTH_SHORT).show();
                 //criar intent para abrir nova tela de cadastro do aluno
                 Intent intent = new Intent(getApplicationContext(),CadastroDePessoaActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("status","inserir");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
