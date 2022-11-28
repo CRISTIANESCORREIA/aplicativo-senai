@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="pessoas">
+        <item>Pessoa Aluno 1</item>
+        <item>Pessoa Aluno 2</item>
+        <item>PessoaAluno 3</item>
+        <item>Pessoa Aluno 4</item>
+        <item>Pessoa Professor 1</item>
+        <item>Pessoa Professor 2</item>
+        <item>Pessoa Professor 3</item>
+        <item>Pessoa Professor 4</item>
+    </string-array>
+
     <string-array name="alunos">
-        <item>Aluno 1</item>
-        <item>Aluno 2</item>
-        <item>Aluno 3</item>
-        <item>Aluno 4</item>
-        <item>Aluno 5</item>
+        <item>Pessoa Aluno 1</item>
+        <item>Pessoa Aluno 2</item>
+        <item>Pessoa Aluno 3</item>
+        <item>Pessoa Aluno 4</item>
+
     </string-array>
 </resources>

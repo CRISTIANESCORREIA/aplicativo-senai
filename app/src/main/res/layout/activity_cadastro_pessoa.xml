@@ -8,51 +8,21 @@
     android:clipToPadding="false"
     android:contextClickable="false"
     android:isScrollContainer="false"
-    tools:context=".view.CadastroAlunoActivity">
-
-    <View
-        android:id="@+id/containerTop1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/background_view_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logosenai"
-        app:layout_constraintBottom_toBottomOf="@id/containerTop1"
-        app:layout_constraintEnd_toEndOf="@id/containerTop1"
-        app:layout_constraintStart_toStartOf="@id/containerTop1"
-        app:layout_constraintTop_toTopOf="@id/containerTop1" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/containerTop1"
-        app:layout_constraintTop_toTopOf="@id/containerTop1">
-
-    </com.google.android.material.textfield.TextInputLayout>
+    tools:context=".view.CadastroPessoaActivity">
 
     <TextView
         android:id="@+id/textView4listaAlunos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LISTA ALUNOS"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:text="Pessoas Cadastradas"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#F4F4F4"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/containerTop1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnCadastroAluno"
@@ -61,7 +31,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="24dp"
-        android:text="Cadastro aluno"
+        android:text="Cadastrar Nova Pessoa"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,12 +55,12 @@
 
     <ListView
         android:id="@+id/listview_alunos"
-        android:layout_width="409dp"
-        android:layout_height="219dp"
+        android:layout_width="387dp"
+        android:layout_height="424dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:entries="@array/alunos"
+        android:entries="@array/pessoas"
         app:layout_constraintBottom_toTopOf="@+id/btnCadastroAluno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

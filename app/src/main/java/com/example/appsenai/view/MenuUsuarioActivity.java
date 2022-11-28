@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.appsenai.R;
 import com.example.appsenai.databinding.ActivityMenuUsuarioBinding;
 
 public class MenuUsuarioActivity extends AppCompatActivity {
@@ -21,15 +20,23 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         binding.imgBtnCadastroAlunos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CadastroAlunoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CadastroPessoaActivity.class);
                 startActivity(intent);
             }
         });
 
-        binding.imgBtnCadastroTurmas.setOnClickListener(new View.OnClickListener() {
+        binding.imgBtnCadastroTurma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CadastroTurmaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.imgBtnCadastroAlunoComTurma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),AssociaAlunoComTurmaActivity.class);
                 startActivity(intent);
             }
         });

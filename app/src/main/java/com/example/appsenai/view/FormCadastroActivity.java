@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class FormCadastroActivity extends AppCompatActivity {
 
     Button btCadastrar;
-    EditText editSenha,editEmail,editNome;
+    EditText editSenha,editEmail;
     private static final String TAG = "EmailPassword";
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -97,9 +97,7 @@ public class FormCadastroActivity extends AppCompatActivity {
         if(editEmail.getText().toString().equals("")){
             editEmail.setError("E-mail não preenchido!");
         }
-        if(editNome.getText().toString().equals("")){
-            editNome.setError("Nome não preenchido!");
-        }
+
         if(editSenha.getText().toString().equals("")){
             editSenha.setError("Senha não preenchido!");
         }
@@ -107,7 +105,7 @@ public class FormCadastroActivity extends AppCompatActivity {
 
     private void inicializar() {
         btCadastrar = findViewById(R.id.btCadastrar1);
-        editNome = findViewById(R.id.editNome);
+
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.edit_senha);
         mAuth = FirebaseAuth.getInstance();

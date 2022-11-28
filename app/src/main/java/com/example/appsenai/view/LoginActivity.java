@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private Button botao;
     private EditText editEmail, editSenha;
     private TextView txt_tela_cadastro;
@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         inicializar();
         getSupportActionBar().hide();
 
         txt_tela_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FormCadastroActivity.class);
+                Intent intent = new Intent(LoginActivity.this, FormCadastroActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 if(validarDados()){
                     signIn(editEmail.getText().toString(),editSenha.getText().toString());
                 }else{
-                    Toast.makeText(MainActivity.this, "Obrigatório preenchimento de todos campos!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Obrigatório preenchimento de todos campos!", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Autenticação Falhou.",
+                            Toast.makeText(LoginActivity.this, "Autenticação Falhou.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if(user!=null){
-            Intent intent = new Intent(MainActivity.this, MenuUsuarioActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MenuUsuarioActivity.class);
             startActivity(intent);
         }
     }

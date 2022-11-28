@@ -7,24 +7,6 @@
     android:background="@color/empire"
     tools:context=".view.CadastroTurmaActivity">
 
-    <View
-        android:id="@+id/containerTop1"
-        android:layout_width="412dp"
-        android:layout_height="158dp"
-        android:background="@drawable/background_view_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logosenai"
-        app:layout_constraintBottom_toBottomOf="@id/containerTop1"
-        app:layout_constraintEnd_toEndOf="@id/containerTop1"
-        app:layout_constraintStart_toStartOf="@id/containerTop1"
-        app:layout_constraintTop_toTopOf="@id/containerTop1" />
-
     <Button
         android:id="@+id/button3Confirmar"
         android:layout_width="0dp"
@@ -39,20 +21,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerDiaDaSemana2" />
-
-    <Button
-        android:id="@+id/button4Cancelar002"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="CANCELAR"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3Confirmar" />
 
     <EditText
         android:id="@+id/edtNomeDisciplina"
@@ -75,12 +43,12 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:entries="@array/cursos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/containerTop1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
         android:id="@+id/spinnerProfessores"
@@ -117,6 +85,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerDiaDaSemana" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Cadastro de Turmas"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerCurso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.133" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
