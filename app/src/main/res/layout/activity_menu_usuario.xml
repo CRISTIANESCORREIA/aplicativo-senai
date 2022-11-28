@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:text="Cadastro de alunos"
+                android:text="Cadastro de pessoas"
                 android:textSize="20sp" />
         </TableRow>
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CadastroDePessoaActivity">
+
+    <TextView
+        android:id="@+id/textViewCadastroTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:text="Cadastro de Pessoa"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtNomePessoa"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Informe o nome da Pessoa"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCadastroTitulo" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Informe o e-mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/edtNomePessoa"
+        app:layout_constraintStart_toStartOf="@+id/edtNomePessoa"
+        app:layout_constraintTop_toBottomOf="@+id/edtNomePessoa" />
+
+    <EditText
+        android:id="@+id/edtCpf"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="Informe o CPF"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edtEmail"
+        app:layout_constraintStart_toStartOf="@+id/edtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
+    <Spinner
+        android:id="@+id/spinnerTipo"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:entries="@array/tipos"
+        app:layout_constraintEnd_toEndOf="@+id/edtCpf"
+        app:layout_constraintStart_toStartOf="@+id/edtCpf"
+        app:layout_constraintTop_toBottomOf="@+id/edtCpf" />
+
+    <Button
+        android:id="@+id/btnConfirmarCadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Confirmar Cadastro"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerTipo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Senha Padrão: abc123@@"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTipo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

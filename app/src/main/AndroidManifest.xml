@@ -24,7 +24,6 @@
                 android:value="" />
         </activity>
 
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -44,12 +43,20 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.CadastroPessoaActivity"
+            android:name=".view.CadastroPessoaListaActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".view.CadastroDePessoaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name=".view.ListaTurmasActivity"
             android:exported="false">

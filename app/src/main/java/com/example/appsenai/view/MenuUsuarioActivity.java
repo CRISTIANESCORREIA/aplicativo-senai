@@ -20,7 +20,7 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         binding.imgBtnCadastroAlunos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CadastroPessoaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CadastroPessoaListaActivity.class);
                 startActivity(intent);
             }
         });

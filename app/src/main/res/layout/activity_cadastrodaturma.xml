@@ -64,7 +64,7 @@
 
     <Spinner
         android:id="@+id/spinnerDiaDaSemana"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="48sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"

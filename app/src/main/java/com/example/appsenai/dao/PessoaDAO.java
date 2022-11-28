@@ -24,12 +24,13 @@ public class PessoaDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String sql_tb_usuario = "CREATE TABLE usuario" +
+        String sql_tb_usuario = "CREATE TABLE pessoa" +
                                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                                 "NOME_COMPLETO TEXT NOT NULL," +
                                 "EMAIL TEXT NOT NULL," +
                                 "SENHA TEXT NOT NULL," +
-                                "CPF   TEXT NOT NULL)";
+                                "CPF   TEXT NOT NULL," +
+                                "TIPO TEXT NOT NULL)";
 
         sqLiteDatabase.execSQL(sql_tb_usuario);
         Log.w("Base","Criou a tabela");
@@ -38,9 +39,9 @@ public class PessoaDAO extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
-        String sql = "DROP TABLE IF EXISTS produtos";
+        String sql = "DROP TABLE IF EXISTS pessoa";
         sqLiteDatabase.execSQL(sql);
-        String sql_tb_usuario = "CREATE TABLE usuario" +
+        String sql_tb_usuario = "CREATE TABLE pessoa" +
                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                 "NOME_COMPLETO TEXT NOT NULL," +
                 "EMAIL TEXT NOT NULL," +
