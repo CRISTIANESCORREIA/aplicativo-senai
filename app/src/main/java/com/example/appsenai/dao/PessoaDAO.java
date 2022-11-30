@@ -103,7 +103,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         String args[] = {String.valueOf(pessoa.getId())};
 
-        Log.w("idL",pessoa.getId()+"");
+        Log.w("idL", String.valueOf(pessoa.getId()));
 
         Log.w("valoresAlterar",values.toString());
 

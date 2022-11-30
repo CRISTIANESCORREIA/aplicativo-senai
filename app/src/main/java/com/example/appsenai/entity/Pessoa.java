@@ -11,11 +11,16 @@ public class Pessoa implements Serializable {
     private String senha;
     private String cpf;
 
+    public Pessoa() {
+
+    }
+
     @Override
     public String toString() {
-        return tipo +
-                " - " + nomeComleto  +
-                "\nE-mail: " + email ;
+        return  this.tipo +
+                " - " + this.nomeComleto  +
+                "\nE-mail: " + this.email +
+                "- id: "+this.id;
     }
 
     public Pessoa(int id, String tipo, String nomeComleto, String email, String senha, String cpf) {

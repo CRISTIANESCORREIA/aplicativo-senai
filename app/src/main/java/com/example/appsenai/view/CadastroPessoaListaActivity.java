@@ -22,6 +22,7 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
 
     ActivityCadastroPessoaListaBinding binding;
     PessoaDAO pdao;
+
     ArrayList<Pessoa> pessoas ;
 
     @Override
@@ -29,7 +30,7 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         binding = ActivityCadastroPessoaListaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        pdao = new PessoaDAO(getApplicationContext());
+        pdao = new PessoaDAO(CadastroPessoaListaActivity.this);;
 
 
         binding.listviewAlunos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -92,7 +93,7 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
             }
         });
 
-        atualizarListaAdapter();
+        //atualizarListaAdapter();
 
 
 
@@ -100,13 +101,17 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
 
     @Override
     protected void onResume() {
-        atualizarListaAdapter();
         super.onResume();
+        atualizarListaAdapter();
     }
 
     private void atualizarListaAdapter() {
+        pdao = new PessoaDAO(CadastroPessoaListaActivity.this);
         pessoas = pdao.getListPessoas() ;
-        ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(this, android.R.layout.simple_list_item_1,pessoas);
-        binding.listviewAlunos.setAdapter(adapter);
+        if(pessoas != null) {
+            ArrayAdapter<Pessoa> adapter = new ArrayAdapter<>(CadastroPessoaListaActivity.this,
+                    android.R.layout.simple_list_item_1, pessoas);
+            binding.listviewAlunos.setAdapter(adapter);
+        }
     }
 }
