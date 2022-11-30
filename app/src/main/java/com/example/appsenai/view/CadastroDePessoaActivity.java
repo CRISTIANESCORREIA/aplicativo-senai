@@ -3,6 +3,7 @@ package com.example.appsenai.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,11 +26,15 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
         String valida =  bundle.getString("status");
         Pessoa pAlterar  = (Pessoa) bundle.getSerializable("Pessoa");;
         if(valida.equals("inserir")){
+            binding.edtId.setVisibility(View.GONE);
+            binding.btnAlterar.setVisibility(View.GONE);
             binding.edtCpf.addTextChangedListener(MaskEditUtil.mask(binding.edtCpf, MaskEditUtil.FORMAT_CPF));
         }else{
-
+            binding.edtId.setVisibility(View.VISIBLE);
+            binding.btnAlterar.setVisibility(View.VISIBLE);
+            binding.edtId.setText(String.valueOf(pAlterar.getId()));
             binding.edtSenha.setEnabled(true);
-            binding.btnConfirmarCadastro.setText("Alterar");
+            binding.btnConfirmarCadastro.setVisibility(View.GONE);
             binding.textViewCadastroTitulo.setText("Edição de Pessoa");
             binding.edtNomePessoa.setText(pAlterar.getNomeComleto().toString());
             if(pAlterar.getTipo().toString().equals("Aluno")){
@@ -51,32 +56,38 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validaCampos()) {
-                    if(binding.btnConfirmarCadastro.toString().equals("Alterar")){
-                        PessoaDAO pdao = new PessoaDAO(getApplicationContext());
-                        pdao.alterar(pAlterar);
-                        Toast.makeText(CadastroDePessoaActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }else{
                         Pessoa p = montarObjetoPessoa();
                         PessoaDAO pdao = new PessoaDAO(getApplicationContext());
                         pdao.salvar(p);
                         Toast.makeText(CadastroDePessoaActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                         finish();
-                    }
-
                 }
+            }
+        });
+
+        binding.btnAlterar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PessoaDAO pdao = new PessoaDAO(getApplicationContext());
+                Log.w("alteradoAntes",pAlterar.toString());
+                Pessoa Alterar = montarObjetoPessoa();
+                Log.w("alterado",Alterar.toString());
+                pdao.alterar(Alterar);
+                Toast.makeText(CadastroDePessoaActivity.this, "Alteração feita com sucesso!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
 
     private Pessoa montarObjetoPessoa() {
         Pessoa p = new Pessoa(
-                binding.spinnerTipo.getSelectedItem().toString(),
-                binding.edtNomePessoa.getText().toString(),
-                binding.edtEmail.getText().toString(),
-                "abc123@@",
-                binding.edtCpf.getText().toString());
-
+                                binding.edtId.getId(),
+                                binding.spinnerTipo.getSelectedItem().toString(),
+                                binding.edtNomePessoa.getText().toString(),
+                                binding.edtEmail.getText().toString(),
+                                binding.edtSenha.getText().toString(),
+                                binding.edtCpf.getText().toString()
+                             );
         return p;
     }
 

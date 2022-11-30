@@ -25,58 +25,40 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Informe o nome da Pessoa"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCadastroTitulo" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="Informe o e-mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/edtNomePessoa"
-        app:layout_constraintStart_toStartOf="@+id/edtNomePessoa"
-        app:layout_constraintTop_toBottomOf="@+id/edtNomePessoa" />
-
-    <EditText
-        android:id="@+id/edtCpf"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="9dp"
-        android:ems="10"
-        android:hint="Informe o CPF"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/edtEmail"
-        app:layout_constraintStart_toStartOf="@+id/edtEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
-
-    <Spinner
-        android:id="@+id/spinnerTipo"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="15dp"
-        android:entries="@array/tipos"
-        app:layout_constraintEnd_toEndOf="@+id/edtCpf"
-        app:layout_constraintStart_toStartOf="@+id/edtCpf"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpf" />
+        app:layout_constraintTop_toBottomOf="@+id/edtId" />
 
     <Button
         android:id="@+id/btnConfirmarCadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Confirmar Cadastro"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/spinnerTipo"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
+
+    <Button
+        android:id="@+id/btnAlterar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="124dp"
+        android:text="Alterar "
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerTipo"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
 
@@ -85,7 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:enabled="false"
@@ -93,7 +75,61 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerTipo" />
+
+    <Spinner
+        android:id="@+id/spinnerTipo"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:entries="@array/tipos"
+        app:layout_constraintEnd_toEndOf="@+id/edtCpf"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtCpf"
+        app:layout_constraintTop_toBottomOf="@+id/edtCpf" />
+
+    <EditText
+        android:id="@+id/edtCpf"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Informe o CPF"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edtEmail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Informe o e-mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/edtNomePessoa"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtNomePessoa"
+        app:layout_constraintTop_toBottomOf="@+id/edtNomePessoa" />
+
+    <EditText
+        android:id="@+id/edtId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="id"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCadastroTitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

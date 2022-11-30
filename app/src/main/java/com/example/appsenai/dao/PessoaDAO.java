@@ -107,7 +107,7 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
         Log.w("valoresAlterar",values.toString());
 
-        int retorno = getWritableDatabase().update("pessoa",values,"ID=?",args);
+        int retorno = getWritableDatabase().update("pessoa",values,"id=?",args);
 
         Log.w("retornoID",String.valueOf(retorno));
 

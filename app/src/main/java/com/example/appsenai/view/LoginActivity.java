@@ -57,7 +57,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+    @Override
+    protected void onResume() {
+        if(mAuth.getCurrentUser()!=null){
+            updateUI(mAuth.getCurrentUser());
+        }
+        super.onResume();
+    }
+
 
     private boolean validarDados() {
         if(editEmail.getText().toString().equals("")){

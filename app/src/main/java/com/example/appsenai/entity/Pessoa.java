@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class Pessoa implements Serializable {
-    private long id;
+    private int id;
     private String tipo; // Pode ser A-ALUNO - P-PROFESSOR- G-GERENCIADOR DO SISTEMA
     private String nomeComleto;
     private String email;
@@ -18,7 +18,7 @@ public class Pessoa implements Serializable {
                 "\nE-mail: " + email ;
     }
 
-    public Pessoa(long id, String tipo, String nomeComleto, String email, String senha, String cpf) {
+    public Pessoa(int id, String tipo, String nomeComleto, String email, String senha, String cpf) {
         this.id = id;
         this.tipo = tipo;
         this.nomeComleto = nomeComleto;
@@ -45,11 +45,11 @@ public class Pessoa implements Serializable {
         return false;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
