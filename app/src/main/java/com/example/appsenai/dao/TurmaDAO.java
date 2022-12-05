@@ -32,7 +32,7 @@ public class TurmaDAO extends SQLiteOpenHelper {
                                 "PROFESSOR TEXT NOT NULL," +
                                 "DISCIPLINA TEXT NOT NULL)";
 
-        String sql_tb_turma_aluno = "CREATE TABLE turma" +
+        String sql_tb_turma_aluno = "CREATE TABLE turma_aluno" +
                 "(ID_TURMA INTEGER NOT NULL," +
                 "ID_ALUNO INTEGER NOT NULL)";
 

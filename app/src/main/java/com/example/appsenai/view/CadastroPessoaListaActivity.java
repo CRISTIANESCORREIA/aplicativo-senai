@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.appsenai.dao.PessoaDAO;
 import com.example.appsenai.databinding.ActivityCadastroPessoaListaBinding;
 import com.example.appsenai.entity.Pessoa;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,7 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
         binding = ActivityCadastroPessoaListaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         pdao = new PessoaDAO(CadastroPessoaListaActivity.this);;
+
 
 
         binding.listviewAlunos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

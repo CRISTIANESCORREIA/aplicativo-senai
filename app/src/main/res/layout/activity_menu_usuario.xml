@@ -17,7 +17,7 @@
             android:layout_margin="15sp"
             android:text="Bem-Vindo!!"
             android:textAlignment="center"
-
+            android:justificationMode="inter_word"
             android:textSize="20dp" />
 
 
@@ -28,7 +28,7 @@
             android:layout_margin="10sp"
             android:contentDescription="@string/cadastro"
             android:textSize="18dp"
-            android:text="Cadastro de pessoas"
+            android:text="Pessoas"
             android:tooltipText="Cadastro de Alunos"
             app:icon="@drawable/ic_baseline_account_circle_24" />
 
@@ -41,7 +41,7 @@
             android:layout_margin="10sp"
             android:contentDescription="@string/cadastro"
             android:textSize="18dp"
-            android:text="Cadastro de Turmas"
+            android:text="Turmas"
             android:tooltipText="Cadastro de Alunos"
             app:icon="@drawable/ic_baseline_supervised_user_circle_24" />
 
@@ -56,6 +56,17 @@
             android:text="Associar aluno com turma"
             android:tooltipText="Associar Aluno com turma"
             app:icon="@drawable/ic_baseline_assignment_24" />
+
+        <Button
+            android:id="@+id/imgBtnSobre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:contentDescription="@string/cadastro"
+            android:text="Sobre o APP"
+            android:textSize="18dp"
+            android:tooltipText="Associar Aluno com turma"
+            app:icon="@drawable/ic_baseline_text_snippet_24" />
 
         <Button
             android:id="@+id/imgBtnSair"

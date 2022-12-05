@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/empire"
+    android:backgroundTint="@color/branco"
+    android:orientation="vertical"
+    tools:context=".view.SobreSenaiActivity">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="SOBRE NOS"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/orange"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+
+        android:id="@+id/textView_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:justificationMode="inter_word"
+        android:text="O aplicativo Senai o futuro pela Educação, foi desenvolvido pelos alunos: Cristiane Correia, Gabriel Machado e Vinicius Lima. Trabalho da G2 da Disciplina de Dispositivos Móveis no Curso de Análise e Desenvolvimentos de Sistema de Informação na Faculdade SENAI Porto Alegre/RS. Este aplicativo mostra algumas ferramentas de aprendizagem desenvolvida em sala de aula com orientação do professor Marcelo Barbosa, através deste app podemos observar um acervo imenso de informações que podemos extrair da linguagem Java e Kotlin na plataforma do Android Studio. Entretanto nossa missão foi trazer um pouco de conhecimento e poder compartilhar com a turma de ADS, porque assim como existiram dúvidas, acreditamos que são importantes cada código implementado no projeto de estudo. Mas  com certeza este pouco de códigos ajudarão muitos alunos. Importante ressaltar que este código vai estar no GitHub, é um código open source e todos podem usufruir."
+        android:textColor="@color/blackwi"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Button
+        android:id="@+id/buttonVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="VOLTAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_txt" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
