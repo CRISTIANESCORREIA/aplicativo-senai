@@ -34,7 +34,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="12dp"
         android:justificationMode="inter_word"
-        android:text="O aplicativo Senai o futuro pela Educação, foi desenvolvido pelos alunos: Cristiane Correia, Gabriel Machado e Vinicius Lima. Trabalho da G2 da Disciplina de Dispositivos Móveis no Curso de Análise e Desenvolvimentos de Sistema de Informação na Faculdade SENAI Porto Alegre/RS. Este aplicativo mostra algumas ferramentas de aprendizagem desenvolvida em sala de aula com orientação do professor Marcelo Barbosa, através deste app podemos observar um acervo imenso de informações que podemos extrair da linguagem Java e Kotlin na plataforma do Android Studio. Entretanto nossa missão foi trazer um pouco de conhecimento e poder compartilhar com a turma de ADS, porque assim como existiram dúvidas, acreditamos que são importantes cada código implementado no projeto de estudo. Mas  com certeza este pouco de códigos ajudarão muitos alunos. Importante ressaltar que este código vai estar no GitHub, é um código open source e todos podem usufruir."
+        android:text="\nO aplicativo Senai o futuro pela Educação, foi desenvolvido pelos alunos: Cristiane Correia, Gabriel Machado e Vinicius Lima. \n\nTrabalho do Grau 2 da Disciplina de Dispositivos Móveis no Curso de Análise e Desenvolvimentos de Sistema de Informação na Faculdade SENAI Porto Alegre/RS.
+        \n\nEste aplicativo mostra algumas ferramentas de aprendizagem desenvolvida em sala de aula com orientação do professor Marcelo Barbosa, através deste app podemos observar um acervo imenso de informações que podemos extrair da linguagem Java e Kotlin na plataforma do Android Studio.
+        \n\n Entretanto nossa missão foi trazer um pouco de conhecimento e poder compartilhar com a turma de ADS, porque assim como existiram dúvidas, acreditamos que são importantes cada código implementado no projeto de estudo.
+        \n\nCom certeza este pouco de códigos ajudarão muitos alunos. Importante ressaltar que este código vai estar no GitHub, é open source e todos podem usufruir."
         android:textColor="@color/blackwi"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
