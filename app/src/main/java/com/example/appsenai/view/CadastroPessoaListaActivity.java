@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.appsenai.dao.PessoaDAO;
 import com.example.appsenai.databinding.ActivityCadastroPessoaListaBinding;
 import com.example.appsenai.entity.Pessoa;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;

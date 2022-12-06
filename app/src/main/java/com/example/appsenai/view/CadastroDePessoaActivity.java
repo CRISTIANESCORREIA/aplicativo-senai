@@ -28,20 +28,20 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCadastroDePessoaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        mAuth = FirebaseAuth.getInstance();
         Bundle bundle = getIntent().getExtras();
         String valida =  bundle.getString("status");
         Pessoa pAlterar  = (Pessoa) bundle.getSerializable("Pessoa");;
         if(valida.equals("inserir")){
             binding.edtId.setVisibility(View.GONE);
-            binding.edtSenha.setText("abc123@@");
+
             binding.btnAlterar.setVisibility(View.GONE);
             binding.edtCpf.addTextChangedListener(MaskEditUtil.mask(binding.edtCpf, MaskEditUtil.FORMAT_CPF));
         }else{
             binding.edtId.setVisibility(View.VISIBLE);
             binding.btnAlterar.setVisibility(View.VISIBLE);
             binding.edtId.setText(String.valueOf(pAlterar.getId()));
-            binding.edtSenha.setEnabled(true);
+
             binding.btnConfirmarCadastro.setVisibility(View.GONE);
             binding.textViewCadastroTitulo.setText("Edição de Pessoa");
             binding.edtNomePessoa.setText(pAlterar.getNomeComleto().toString());
@@ -57,7 +57,7 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
             binding.edtEmail.setText(pAlterar.getEmail());
             binding.edtCpf.addTextChangedListener(MaskEditUtil.mask(binding.edtCpf, MaskEditUtil.FORMAT_CPF));
             binding.edtCpf.setText(pAlterar.getCpf());
-            binding.edtSenha.setText(pAlterar.getSenha());
+
         }
 
         binding.btnConfirmarCadastro.setOnClickListener(new View.OnClickListener() {
@@ -125,8 +125,8 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
                     Integer.parseInt(binding.edtId.getText().toString()),
                     binding.spinnerTipo.getSelectedItem().toString(),
                     binding.edtNomePessoa.getText().toString(),
-                    "abc123@@",
-                    binding.edtSenha.getText().toString(),
+                    binding.edtEmail.getText().toString(),
+                   "abc123@@",
                     binding.edtCpf.getText().toString()
             );
         }else{

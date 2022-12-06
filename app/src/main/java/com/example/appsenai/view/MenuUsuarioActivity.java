@@ -7,12 +7,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.appsenai.dao.PessoaDAO;
 import com.example.appsenai.databinding.ActivityMenuUsuarioBinding;
 import com.example.appsenai.entity.Pessoa;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -22,16 +25,19 @@ import java.io.Serializable;
 public class MenuUsuarioActivity extends AppCompatActivity {
 
     ActivityMenuUsuarioBinding binding;
-
+    PessoaDAO pDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMenuUsuarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        pDao = new PessoaDAO(getApplicationContext());
+        validaAcessos();
         inicializar();
     }
 
     private void inicializar() {
+
         binding.txtUsername.setText(binding.txtUsername.getText()+"\n"+FirebaseAuth.getInstance().getCurrentUser().getEmail());
         binding.imgBtnCadastroAlunos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +82,40 @@ public class MenuUsuarioActivity extends AppCompatActivity {
                 abreActivity(getApplicationContext(),ConfiguracoesActivity.class);
             }
         });
+    }
+
+    private void validaAcessos() {
+       String tipo = "";
+       if(FirebaseAuth.getInstance().getCurrentUser().getEmail().toString().equals("superappsenai@gmail.com")){
+           tipo = "Sysadmin";
+       }else{
+           tipo = pDao.buscaTipoPorEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail().toString());
+       }
+        Log.w("tipo",tipo);
+       if(tipo.contains("Aluno")){
+           binding.imgBtnCadastroAlunos.setVisibility(View.GONE);
+           binding.imgBtnCadastroAlunoComTurma.setVisibility(View.GONE);
+           binding.imgBtnCadastroTurma.setVisibility(View.GONE);
+       }else if(tipo.contains("Professor")){
+
+       }else if(tipo.contains("inexistenteOuInativo")){
+           binding.imgBtnCadastroAlunos.setVisibility(View.GONE);
+           binding.imgBtnCadastroAlunoComTurma.setVisibility(View.GONE);
+           binding.imgBtnCadastroTurma.setVisibility(View.GONE);
+           binding.imgBtnSobre.setVisibility(View.GONE);
+           binding.imgBtnConfig.setVisibility(View.GONE);
+           binding.txtUsername.setText("INATIVO OU INEXISTENTE - Saia do sistema!");
+           FirebaseAuth.getInstance().getCurrentUser().delete();
+           Toast.makeText(this, "Conta excluida, fechando sistema!", Toast.LENGTH_LONG).show();
+           Handler handler = new Handler();
+           handler.postDelayed(new Runnable() {
+               @Override
+               public void run() {
+                   binding.imgBtnSair.performClick();
+               }
+           },3000);
+
+       }
     }
 
     private void abreActivity(Context applicationContext, Class<?> activity) {

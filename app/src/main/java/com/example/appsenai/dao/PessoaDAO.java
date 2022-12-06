@@ -145,6 +145,33 @@ public class PessoaDAO extends SQLiteOpenHelper {
 
     }
 
+    public String buscaTipoPorEmail(String email){
+        String columns[] = {"TIPO"};
+        String args[] = {email};
+        Cursor cursor = getReadableDatabase().query("pessoa",columns,"email like ?",args ,null,null,null);
+        cursor.moveToFirst();
+        String tipo;
+        if(cursor.getCount() > 0){
+         tipo = cursor.getString(0).toString();
+         Log.w("retorno",tipo);
+         return tipo;
+        }else{
+            return "inexistenteOuInativo";
+        }
+/*
+
+            while (cursor.moveToNext()){
+                tipo = cursor.getString(0).toString();
+            }
+            cursor.close();
+            return tipo;
+        }else{
+            return "Sysadmin";
+        }
+*/
+    }
+
+
     public boolean deletar(int id){
         String args[] = {""+id};
         int retorno = getWritableDatabase().delete("pessoa","ID=?",args);
