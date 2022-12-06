@@ -4,24 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.appsenai.R;
-import com.example.appsenai.databinding.ActivityFormCadastroBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.appsenai.databinding.ActivityResetSenhaBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class FormCadastroActivity extends AppCompatActivity {
-    ActivityFormCadastroBinding binding;
+public class ResetSenhaActivity extends AppCompatActivity {
+    ActivityResetSenhaBinding binding;
 
     private static final String TAG = "EmailPassword";
     // [START declare_auth]
@@ -31,7 +23,7 @@ public class FormCadastroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityFormCadastroBinding.inflate(getLayoutInflater());
+        binding = ActivityResetSenhaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         mAuth = FirebaseAuth.getInstance();
 
@@ -43,13 +35,13 @@ public class FormCadastroActivity extends AppCompatActivity {
                 mAuth.sendPasswordResetEmail("gabrielgamerlive@gmail.com").addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(FormCadastroActivity.this, "Enviado reset de senha para o e-mail " + binding.editEmail.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ResetSenhaActivity.this, "Enviado reset de senha para o e-mail " + binding.editEmail.getText().toString(), Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(FormCadastroActivity.this, "Ocorreu um erro ao enviar o e-mail para o reset de senha.\n "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ResetSenhaActivity.this, "Ocorreu um erro ao enviar o e-mail para o reset de senha.\n "+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
                // createAccount(editEmail.getText().toString(),editSenha.getText().toString());

@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         txt_tela_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, FormCadastroActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ResetSenhaActivity.class);
                 startActivity(intent);
             }
         });
