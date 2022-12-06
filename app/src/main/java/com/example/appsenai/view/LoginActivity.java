@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         txt_tela_cadastro = findViewById(R.id.txtTelaCadastro);
         botao = findViewById(R.id.btEntrar);
         mAuth = FirebaseAuth.getInstance();
+        Log.w("mAuth",mAuth.toString());
 
     }
 

@@ -11,16 +11,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.appsenai.R;
+import com.example.appsenai.databinding.ActivityFormCadastroBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class FormCadastroActivity extends AppCompatActivity {
+    ActivityFormCadastroBinding binding;
 
-    Button btCadastrar;
-    EditText editSenha,editEmail;
     private static final String TAG = "EmailPassword";
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -29,85 +31,36 @@ public class FormCadastroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_cadastro);
-        inicializar();
-        btCadastrar.setOnClickListener(new View.OnClickListener() {
+        binding = ActivityFormCadastroBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        mAuth = FirebaseAuth.getInstance();
+
+        binding.btCadastrar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validarDados();
-                createAccount(editEmail.getText().toString(),editSenha.getText().toString());
-            }
-        });
 
-    }
-
-    // [START on_start_check_user]
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            reload();
-        }
-    }*/
-
-    private void createAccount(String email, String password) {
-        // [START create_user_with_email]
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-
+                mAuth.sendPasswordResetEmail("gabrielgamerlive@gmail.com").addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                            Toast.makeText(FormCadastroActivity.this, "Conta criada com sucesso.",
-                                    Toast.LENGTH_LONG).show();
-                            finish();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(FormCadastroActivity.this, "Ocorreu um erro: "+task.getException(),
-                                    Toast.LENGTH_LONG).show();
-                            updateUI(null);
-                        }
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(FormCadastroActivity.this, "Enviado reset de senha para o e-mail " + binding.editEmail.getText().toString(), Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(FormCadastroActivity.this, "Ocorreu um erro ao enviar o e-mail para o reset de senha.\n "+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-        // [END create_user_with_email]
+               // createAccount(editEmail.getText().toString(),editSenha.getText().toString());
+            }
+        });
     }
-
-
-
-
-
-    private void reload() { }
-
-    private void updateUI(FirebaseUser user) {
-
-    }
-
-
 
     private void validarDados() {
-        if(editEmail.getText().toString().equals("")){
-            editEmail.setError("E-mail não preenchido!");
-        }
-
-        if(editSenha.getText().toString().equals("")){
-            editSenha.setError("Senha não preenchido!");
+        if(binding.editEmail.getText().toString().trim().equals("")){
+            binding.editEmail.setError("E-mail não preenchido!");
         }
     }
 
-    private void inicializar() {
-        btCadastrar = findViewById(R.id.btCadastrar1);
-
-        editEmail = findViewById(R.id.editEmail);
-        editSenha = findViewById(R.id.edit_senha);
-        mAuth = FirebaseAuth.getInstance();
-    }
 }

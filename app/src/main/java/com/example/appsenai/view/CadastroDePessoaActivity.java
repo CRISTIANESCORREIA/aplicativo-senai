@@ -1,5 +1,6 @@
 package com.example.appsenai.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -11,10 +12,16 @@ import com.example.appsenai.dao.PessoaDAO;
 import com.example.appsenai.databinding.ActivityCadastroDePessoaBinding;
 import com.example.appsenai.entity.Pessoa;
 import com.example.appsenai.entity.util.MaskEditUtil;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class CadastroDePessoaActivity extends AppCompatActivity {
 
     ActivityCadastroDePessoaBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +67,7 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
                         Pessoa p = montarObjetoPessoa(false);
                         PessoaDAO pdao = new PessoaDAO(getApplicationContext());
                         pdao.salvar(p);
+                        createAccount(p.getEmail(),p.getSenha());
                         Toast.makeText(CadastroDePessoaActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                         finish();
                 }
@@ -80,6 +88,36 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
         });
     }
 
+    private void createAccount(String email, String password) {
+        // [START create_user_with_email]
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                           // Log.d(TAG, "createUserWithEmail:success");
+                            //FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
+                            Toast.makeText(CadastroDePessoaActivity.this, "Conta criada com sucesso.",
+                                    Toast.LENGTH_LONG).show();
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            //Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(CadastroDePessoaActivity.this, "Ocorreu um erro: "+task.getException(),
+                                    Toast.LENGTH_LONG).show();
+                            //updateUI(null);
+                        }
+                    }
+                });
+        // [END create_user_with_email]
+    }
+
+
     private Pessoa montarObjetoPessoa(boolean editar) {
         Pessoa pessoa = new Pessoa();
         if(editar){
@@ -87,7 +125,7 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
                     Integer.parseInt(binding.edtId.getText().toString()),
                     binding.spinnerTipo.getSelectedItem().toString(),
                     binding.edtNomePessoa.getText().toString(),
-                    binding.edtEmail.getText().toString(),
+                    "abc123@@",
                     binding.edtSenha.getText().toString(),
                     binding.edtCpf.getText().toString()
             );
@@ -96,7 +134,7 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
                     binding.spinnerTipo.getSelectedItem().toString(),
                     binding.edtNomePessoa.getText().toString(),
                     binding.edtEmail.getText().toString(),
-                    binding.edtSenha.getText().toString(),
+                    "abc123@@",
                     binding.edtCpf.getText().toString()
             );
         }

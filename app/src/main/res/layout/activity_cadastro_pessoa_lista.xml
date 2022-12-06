@@ -51,5 +51,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCadastroTitulo" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatBtnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="315dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="52dp"
+        android:clickable="true"
+        android:contentDescription="@string/cadastro"
+        app:backgroundTint="#FFF203"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_add_alt_1_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

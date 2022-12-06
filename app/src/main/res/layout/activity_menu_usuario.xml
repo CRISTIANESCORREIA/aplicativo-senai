@@ -66,8 +66,17 @@
             android:contentDescription="@string/cadastro"
             android:text="Sobre o APP"
             android:textSize="18dp"
-            android:tooltipText="Associar Aluno com turma"
             app:icon="@drawable/ic_baseline_text_snippet_24" />
+
+        <Button
+            android:id="@+id/imgBtnConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:contentDescription="@string/cadastro"
+            android:text="Configurações"
+            android:textSize="18dp"
+            app:icon="@drawable/ic_baseline_settings_24" />
 
         <Button
             android:id="@+id/imgBtnSair"

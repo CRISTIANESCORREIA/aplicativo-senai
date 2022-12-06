@@ -70,6 +70,12 @@ public class MenuUsuarioActivity extends AppCompatActivity {
             }
         });
 
+        binding.imgBtnConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreActivity(getApplicationContext(),ConfiguracoesActivity.class);
+            }
+        });
     }
 
     private void abreActivity(Context applicationContext, Class<?> activity) {

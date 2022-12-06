@@ -82,18 +82,17 @@ public class CadastroPessoaListaActivity extends AppCompatActivity{
             }
         });
 
-        binding.btnCadastrarPessoa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(CadastroPessoaListaActivity.this, "Abre a tela para novo cadastro", Toast.LENGTH_SHORT).show();
-                //criar intent para abrir nova tela de cadastro do aluno
-                Intent intent = new Intent(getApplicationContext(),CadastroDePessoaActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("status","inserir");
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
+        binding.floatBtnAdd.setOnClickListener(  new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(),CadastroDePessoaActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("status","inserir");
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                }
+        );
 
         //atualizarListaAdapter();
 
