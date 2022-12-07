@@ -29,7 +29,7 @@ public class CadastroTurmaActivity extends AppCompatActivity {
 
     private void inicializarSpinnerProfessores() {
         PessoaDAO pessoaDAO = new PessoaDAO(getApplicationContext());
-        List<Pessoa> pessoasList = pessoaDAO.getListPessoas();
+        List<Pessoa> pessoasList = pessoaDAO.getListProfessores();
         if(pessoasList.size()>0){
             ArrayAdapter<Pessoa> adapter =new ArrayAdapter<Pessoa>(this,android.R.layout.simple_spinner_item, pessoasList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
