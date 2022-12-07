@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="cursos">
+        <item>Informe o curso</item>
         <item>Análise e Desenvolvimento de Sistemas</item>
         <item>Sistemas Embarcados</item>
         <item>Redes de Computadores</item>
