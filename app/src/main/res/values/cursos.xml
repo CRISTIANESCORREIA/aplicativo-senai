@@ -8,4 +8,11 @@
         <item>Automação Industrial</item>
         <item>Ciber-segurança</item>
     </string-array>
+    <string-array name="disciplinas">
+        <item>Informe a disciplina</item>
+        <item>Banco de dados</item>
+        <item>Programação básica</item>
+        <item>Redes de computadores</item>
+
+    </string-array>
 </resources>

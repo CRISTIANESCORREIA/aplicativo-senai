@@ -6,38 +6,74 @@ import java.util.Random;
 
 public class Turma implements Serializable {
 
-    private Long         idTurma;
+    private int         idTurma;
+    private int professor_id;
     private Pessoa       professor;
     private String       disciplina;
+    private String curso;
+    private String dia_da_semana;
+    private String turno;
     private List<Pessoa> alunos;
 
-    public Turma(Long idTurma, Pessoa professor, String disciplina, List<Pessoa> alunos) {
+    public String getCurso() {
+        return curso;
+    }
 
+    public Turma(int idTurma, Pessoa professor, String disciplina, String curso, String dia_da_semana, String turno, List<Pessoa> alunos) {
         this.idTurma = idTurma;
-
         this.professor = professor;
-
         this.disciplina = disciplina;
-
+        this.curso = curso;
+        this.dia_da_semana = dia_da_semana;
+        this.turno = turno;
         this.alunos = alunos;
     }
 
-    public Turma(Pessoa professor, String disciplina, List<Pessoa> alunos) {
-
+    public Turma(Pessoa professor, String disciplina, String curso, String dia_da_semana, String turno) {
         this.professor = professor;
-
         this.disciplina = disciplina;
+        this.curso = curso;
+        this.dia_da_semana = dia_da_semana;
+        this.turno = turno;
 
-        this.alunos = alunos;
     }
 
-    public Turma(Long idTurma, Pessoa professor, String disciplina) {
-
-        this.professor = professor;
-
+    public Turma(int idTurma, int professor_id, String disciplina, String curso, String dia_da_semana, String turno) {
+        this.idTurma = idTurma;
+        this.professor_id = professor_id;
         this.disciplina = disciplina;
+        this.curso = curso;
+        this.dia_da_semana = dia_da_semana;
+        this.turno = turno;
 
     }
+
+    @Override
+    public String toString() {
+        return  curso +"\n\t\t"+  disciplina+" - "+ dia_da_semana  +" - "+ turno;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public String getDia_da_semana() {
+        return dia_da_semana;
+    }
+
+    public void setDia_da_semana(String dia_da_semana) {
+        this.dia_da_semana = dia_da_semana;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+
 
     public Integer retornaQuantidadeAlunos(){
 
@@ -45,7 +81,7 @@ public class Turma implements Serializable {
 
     }
 
-    public Long getIdTurma() {
+    public int getIdTurma() {
         return idTurma;
     }
 
@@ -61,7 +97,7 @@ public class Turma implements Serializable {
         return alunos;
     }
 
-    public void setIdTurma(Long idTurma) {
+    public void setIdTurma(int idTurma) {
         this.idTurma = idTurma;
     }
 

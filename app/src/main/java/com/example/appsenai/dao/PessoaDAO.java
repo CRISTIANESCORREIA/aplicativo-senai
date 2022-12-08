@@ -67,43 +67,32 @@ public class PessoaDAO extends SQLiteOpenHelper {
         Log.w("id_salvar","code: "+i);
     }
     /*
-     * Retorna lista com dados do banco*/
+     * Retorna lista com todas pessoas do banco*/
     public ArrayList<Pessoa> getListPessoas(){
-
         String columns[] = {"ID","NOME_COMPLETO","EMAIL","SENHA","CPF","TIPO"};
-
         Cursor cursor = getReadableDatabase().query("pessoa",columns,null,null,null,null,null);
-
         ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
-
         while(cursor.moveToNext()){
-
             Pessoa pessoa = new Pessoa(cursor.getInt(0),cursor.getString(5),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-
             listaPessoas.add(pessoa);
         }
         cursor.close();
-
         return listaPessoas;
     }
 
+    /**
+     * Retorna lista somente com os professores
+     * */
     public ArrayList<Pessoa> getListProfessores(){
-
         String columns[] = {"ID","NOME_COMPLETO","EMAIL","SENHA","CPF","TIPO"};
         String args[] = {"Professor"};
-
         Cursor cursor = getReadableDatabase().query("pessoa",columns,"tipo = ?",args,null,null,null);
-
         ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
-
         while(cursor.moveToNext()){
-
             Pessoa pessoa = new Pessoa(cursor.getInt(0),cursor.getString(5),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-
             listaPessoas.add(pessoa);
         }
         cursor.close();
-
         return listaPessoas;
     }
 

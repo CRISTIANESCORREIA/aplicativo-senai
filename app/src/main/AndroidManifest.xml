@@ -17,6 +17,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.AtividadeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".view.CadastroTurmaListaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.ConfiguracoesActivity"
             android:exported="false">
             <meta-data
@@ -58,13 +72,6 @@
         </activity>
         <activity
             android:name=".view.CadastroDePessoaActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".view.ListaTurmasActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

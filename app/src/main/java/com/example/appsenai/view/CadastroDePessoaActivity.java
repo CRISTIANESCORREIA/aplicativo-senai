@@ -43,7 +43,7 @@ public class CadastroDePessoaActivity extends AppCompatActivity {
             binding.edtId.setText(String.valueOf(pAlterar.getId()));
 
             binding.btnConfirmarCadastro.setVisibility(View.GONE);
-            binding.textViewCadastroTitulo.setText("Edição de Pessoa");
+            binding.textViewPessoas.setText("Edição de Pessoa");
             binding.edtNomePessoa.setText(pAlterar.getNomeComleto().toString());
             if(pAlterar.getTipo().toString().equals("Aluno")){
                 binding.spinnerTipo.setSelection(1);

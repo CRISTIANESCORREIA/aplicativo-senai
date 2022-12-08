@@ -14,13 +14,7 @@ import android.widget.Toast;
 
 import com.example.appsenai.dao.PessoaDAO;
 import com.example.appsenai.databinding.ActivityMenuUsuarioBinding;
-import com.example.appsenai.entity.Pessoa;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.io.Serializable;
 
 public class MenuUsuarioActivity extends AppCompatActivity {
 
@@ -31,6 +25,7 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMenuUsuarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle("Menu principal - SuperApp");
         pDao = new PessoaDAO(getApplicationContext());
         validaAcessos();
         inicializar();
@@ -42,29 +37,24 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         binding.imgBtnCadastroAlunos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abreActivity(getApplicationContext(), CadastroPessoaListaActivity.class);
+                abreActivity( CadastroPessoaListaActivity.class);
             }
         });
 
         binding.imgBtnCadastroTurma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abreActivity(getApplicationContext(),CadastroTurmaActivity.class);
+                abreActivity(CadastroTurmaListaActivity.class);
             }
         });
 
-        binding.imgBtnCadastroAlunoComTurma.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abreActivity(getApplicationContext(),AssociaAlunoComTurmaActivity.class);
-            }
-        });
+
 
         binding.imgBtnSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signOut();
-                abreActivity(getApplicationContext(),LoginActivity.class);
+                abreActivity(LoginActivity.class);
 
             }
         });
@@ -72,14 +62,21 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         binding.imgBtnSobre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abreActivity(getApplicationContext(),SobreSenaiActivity.class);
+                abreActivity(SobreSenaiActivity.class);
             }
         });
 
         binding.imgBtnConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abreActivity(getApplicationContext(),ConfiguracoesActivity.class);
+                abreActivity(ConfiguracoesActivity.class);
+            }
+        });
+
+        binding.btnAtividades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreActivity(AtividadeActivity.class);
             }
         });
     }
@@ -94,13 +91,13 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         Log.w("tipo",tipo);
        if(tipo.contains("Aluno")){
            binding.imgBtnCadastroAlunos.setVisibility(View.GONE);
-           binding.imgBtnCadastroAlunoComTurma.setVisibility(View.GONE);
+          // binding.imgBtnCadastroAlunoComTurma.setVisibility(View.GONE);
            binding.imgBtnCadastroTurma.setVisibility(View.GONE);
        }else if(tipo.contains("Professor")){
 
        }else if(tipo.contains("inexistenteOuInativo")){
            binding.imgBtnCadastroAlunos.setVisibility(View.GONE);
-           binding.imgBtnCadastroAlunoComTurma.setVisibility(View.GONE);
+          // binding.imgBtnCadastroAlunoComTurma.setVisibility(View.GONE);
            binding.imgBtnCadastroTurma.setVisibility(View.GONE);
            binding.imgBtnSobre.setVisibility(View.GONE);
            binding.imgBtnConfig.setVisibility(View.GONE);
@@ -118,8 +115,8 @@ public class MenuUsuarioActivity extends AppCompatActivity {
        }
     }
 
-    private void abreActivity(Context applicationContext, Class<?> activity) {
-        Intent intent = new Intent(applicationContext,activity);
+    private void abreActivity( Class<?> activity) {
+        Intent intent = new Intent(getApplicationContext(),activity);
         startActivity(intent);
     }
 

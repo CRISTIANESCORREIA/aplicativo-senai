@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class TurmaDAO extends SQLiteOpenHelper {
 
-    private static final String DATABASE = "appsenai";
+    private static final String DATABASE = "appsenai1";
     private static final int VERSION = 1;
     private PessoaDAO pessoaDAO;
 
@@ -29,42 +29,44 @@ public class TurmaDAO extends SQLiteOpenHelper {
 
         String sql_tb_turma = "CREATE TABLE turma" +
                                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                                "PROFESSOR TEXT NOT NULL," +
-                                "DISCIPLINA TEXT NOT NULL)";
+                                "PROFESSOR_ID INT NOT NULL," +
+                                "DISCIPLINA TEXT UNIQUE NOT NULL,"+
+                                "CURSO TEXT NOT NULL,"+
+                                "DIA_DA_SEMANA TEXT NOT NULL," +
+                                "TURNO TEXT NOT NULL)"      ;
 
+        /*
         String sql_tb_turma_aluno = "CREATE TABLE turma_aluno" +
                 "(ID_TURMA INTEGER NOT NULL," +
                 "ID_ALUNO INTEGER NOT NULL)";
-
+*/      sqLiteDatabase.beginTransaction();
         sqLiteDatabase.execSQL(sql_tb_turma);
-        sqLiteDatabase.execSQL(sql_tb_turma_aluno);
+        Log.w("tb_turma","criou tb turma");
+        sqLiteDatabase.endTransaction();
+
+  //      sqLiteDatabase.execSQL(sql_tb_turma_aluno);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
-        String sql_tb_turma = "CREATE TABLE turma" +
-                "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                "ID_PROFESSOR INTEGER NOT NULL," +
-                "DISCIPLINA TEXT NOT NULL)";
-
-        String sql_tb_turma_aluno = "CREATE TABLE turma_aluno" +
-                "(ID_TURMA INTEGER NOT NULL," +
-                "ID_ALUNO INTEGER NOT NULL)";
-
-        sqLiteDatabase.execSQL(sql_tb_turma);
-        sqLiteDatabase.execSQL(sql_tb_turma_aluno);
-
     }
 
-    public void salvar(Turma turma){
+    public boolean salvar(Turma turma){
 
         ContentValues values = new ContentValues();
-        values.put("PROFESSOR", turma.getProfessor().getId());
+        values.put("PROFESSOR_ID", turma.getProfessor().getId());
         values.put("DISCIPLINA", turma.getDisciplina());
-        getWritableDatabase().insert("turma",null,values);
-
+        values.put("CURSO",turma.getCurso());
+        values.put("DIA_DA_SEMANA",turma.getDia_da_semana());
+        values.put("TURNO",turma.getTurno());
+        long salvo = getWritableDatabase().insert("turma",null,values);
+        if(salvo>=0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private void salvaTurmaAluno(Turma turma){
@@ -73,7 +75,7 @@ public class TurmaDAO extends SQLiteOpenHelper {
 
             ContentValues values = new ContentValues();
             values.put("ID_TURMA", turma.getIdTurma());
-            values.put("ID_ALUNO", turma.getDisciplina());
+            values.put("ID_ALUNO", aluno.getId());
             getWritableDatabase().insert("turma_aluno",null,values);
 
         }
@@ -82,19 +84,20 @@ public class TurmaDAO extends SQLiteOpenHelper {
 
     /*
      * Retorna lista com dados do banco*/
-    public ArrayList<Turma> getListTurma(){
-
-        String columns[] = {"ID","ID_PROFESSOR","DISCIPLINA"};
-
+    public ArrayList<Turma> getListTurmas(){
+        String columns[] = {"ID","PROFESSOR_ID","DISCIPLINA","CURSO","DIA_DA_SEMANA","TURNO"};
         Cursor cursor = getReadableDatabase().query("turma",columns,null,null,null,null,null);
-
         ArrayList<Turma> listaTurma = new ArrayList<Turma>();
-
         while(cursor.moveToNext()){
-
-            Pessoa pessoa = pessoaDAO.buscaPorId(cursor.getInt(1));
-
-            Turma turma = new Turma(Long.parseLong(cursor.getString(0)),pessoa,cursor.getString(2));
+            //PessoaDAO pDao = new PessoaDAO()
+            Turma turma = new Turma(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
 
             listaTurma.add(turma);
         }
@@ -131,14 +134,14 @@ public class TurmaDAO extends SQLiteOpenHelper {
 
     }
 
-    public void deletar(int id){
-
+    public boolean deletar(int id){
         String args[] = {""+id};
-
-        int i;
-
-        i = getWritableDatabase().delete("turma","ID=?",args);
-
+        int retorno = getWritableDatabase().delete("turma","ID=?",args);
+        if(retorno >0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void deletarAluno(int id, int idAluno){

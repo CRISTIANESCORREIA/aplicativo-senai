@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/canary"
     android:orientation="vertical"
     tools:context=".view.ConfiguracoesActivity" >
 
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:text="Configurações"
+        android:textColor="@color/black"
         android:textSize="24sp" />
 
     <TextView
@@ -21,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="E-mail da Conta:"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <TextView

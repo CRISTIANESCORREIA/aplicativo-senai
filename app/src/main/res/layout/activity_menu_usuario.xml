@@ -15,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
-            android:text="Bem-Vindo!!"
-            android:textColor="@color/white"
-            android:textAlignment="center"
             android:justificationMode="inter_word"
+            android:text="Bem-Vindo!!"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20dp" />
 
 
@@ -28,11 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:contentDescription="@string/cadastro"
-            android:textSize="18dp"
             android:text="Pessoas"
+            android:textSize="18dp"
             android:tooltipText="Cadastro de Alunos"
             app:icon="@drawable/ic_baseline_account_circle_24" />
-
 
 
         <Button
@@ -41,22 +40,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:contentDescription="@string/cadastro"
-            android:textSize="18dp"
             android:text="Turmas"
+            android:textSize="18dp"
             android:tooltipText="Cadastro de Alunos"
             app:icon="@drawable/ic_baseline_supervised_user_circle_24" />
 
-
         <Button
-            android:id="@+id/imgBtn_CadastroAlunoComTurma"
+            android:id="@+id/btnAtividades"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:contentDescription="@string/cadastro"
+            android:text="Atividades"
             android:textSize="18dp"
-            android:text="Associar aluno com turma"
-            android:tooltipText="Associar Aluno com turma"
-            app:icon="@drawable/ic_baseline_assignment_24" />
+            android:tooltipText="Cadastro de Alunos"
+            app:icon="@drawable/ic_baseline_text_snippet_24" />
+
 
         <Button
             android:id="@+id/imgBtnSobre"
@@ -64,9 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:contentDescription="@string/cadastro"
-            android:text="Sobre o APP"
+            android:text="Sobre"
             android:textSize="18dp"
-            app:icon="@drawable/ic_baseline_text_snippet_24" />
+            app:icon="@drawable/ic_baseline_ad_units_24" />
 
         <Button
             android:id="@+id/imgBtnConfig"
@@ -84,8 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:contentDescription="sair"
-            android:textSize="18dp"
             android:text="Sair"
+            android:textSize="18dp"
             android:tooltipText="Associar Aluno com turma"
             app:icon="@drawable/ic_baseline_logout_24" />
 

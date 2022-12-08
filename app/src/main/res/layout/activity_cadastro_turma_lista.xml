@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/empire"
+    tools:context=".view.CadastroTurmaListaActivity">
+
+    <ListView
+        android:id="@+id/listviewTurma"
+        android:layout_width="380dp"
+        android:layout_height="411dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:entries="@array/turmas"
+        app:layout_constraintBottom_toTopOf="@+id/imgBtn_CadastroAlunoComTurma"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewReg"
+        app:layout_constraintVertical_bias="0.3">
+
+    </ListView>
+
+
+    <Button
+        android:id="@+id/imgBtn_CadastroAlunoComTurma"
+        android:layout_width="376dp"
+        android:layout_height="55dp"
+        android:layout_margin="10sp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:contentDescription="@string/cadastro"
+        android:text="Associar aluno com turma"
+        android:textSize="18dp"
+        android:tooltipText="Associar Aluno com turma"
+        app:icon="@drawable/ic_baseline_assignment_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listviewTurma" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNovaTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/Nome"
+        android:tooltipText="adicionar turma"
+        app:backgroundTint="#E67708"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_baseline_note_add_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textViewReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="333dp"
+        android:text="Registros"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="97dp"
+        android:text="Obs.: Mantenha clicado em cima do registro para realizar a exclusão. Caso deseje selecionar basta clicar na lista."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_CadastroAlunoComTurma" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

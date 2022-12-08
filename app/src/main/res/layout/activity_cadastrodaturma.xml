@@ -8,7 +8,7 @@
     tools:context=".view.CadastroTurmaActivity">
 
     <Button
-        android:id="@+id/button3Confirmar"
+        android:id="@+id/btnCadastraTurma"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerDiaDaSemana2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTurno" />
 
     <EditText
         android:id="@+id/edtNomeDisciplina"
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtNomeDisciplina" />
 
     <Spinner
-        android:id="@+id/spinnerDiaDaSemana2"
+        android:id="@+id/spinnerTurno"
         android:layout_width="0dp"
         android:layout_height="48sp"
         android:layout_marginStart="16dp"

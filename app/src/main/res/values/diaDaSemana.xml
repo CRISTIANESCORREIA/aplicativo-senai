@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="diaDaSemana">
+        <item>Informe o dia da Semana</item>
         <item>Segunda-Feira</item>
         <item>Terça-Feira</item>
         <item>Quarta-Feira</item>
@@ -8,6 +9,7 @@
         <item>Sexta-Feira</item>
     </string-array>
     <string-array name="turnos">
+        <item>Informe o turno da aula</item>
         <item>Manhã</item>
         <item>Tarde</item>
         <item>Noite</item>
